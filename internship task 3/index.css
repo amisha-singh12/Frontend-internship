@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+#main{
+    height: 100%;
+    width: 100%;
+    background-color: #ab8f97;
+    display: flex;
+}
+#part-1{
+    height: 100%;
+    width:20%;
+}
+#part-2{
+    height: 100%;
+    width:70%;
+    background-color: rgb(255, 0, 0);
+    background-image:url(IMG_1497.jpeg) ;
+    background-size:cover;
+    background-position: centre;
+}
+#over-lay{
+    height: 100%;
+    width: 100%;
+    background-color:  #ab8f975f;
+}
+#part-3{
+    height: 100%;
+    width:10%;
+}
+#text-div{
+   height: 300px;
+   position: absolute;
+   width: 400px;
+   left:7%;
+   top:50%;
+   transform:translate(0,-50%);
+}
+
+#text-div h1{
+    font-size: 95px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 100;
+    letter-spacing: 5px;
+    line-height: 78px;
+    color:transparent;
+    text-transform: uppercase;
+    -webkit-text-stroke-width: 2px;
+     -webkit-text-stroke-color: rgb(232, 229, 229);
+}
+@keyframes slide { 
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+  }
+
+#text-div {
+    animation: slide 2s forwards;
+    /* position: absolute; */
+    /* left: 0; */
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+  }
+#small-img{
+    height: 400px;
+    width: 300px;
+    background-color:navy;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translate(0,-50%);
+    background-image:url(Red-Velvet-Cupcakes-1-300x300.webp) ;
+    background-size:cover;
+    background-position: centre;
+}
+#vertical-text{
+    position: absolute;
+    /* width: 100%; */
+    transform: rotate(90deg);
+    right: -40%;
+    top:-1%;
+     transform-origin: 0% 0%;
+     transform: translateY(0%,50%);
+    
+}
+#vertical-text h1{
+    font-size: 70px;
+    font-weight: 500;
+    font-family: 'Roboto Mono', monospace;
+    text-transform:capitalize;
+    letter-spacing: 5px;
+    color: transparent;
+     -webkit-text-stroke-width: 2px;
+     -webkit-text-stroke-color: rgb(232, 229, 229);
+
+}
+
+#nav{
+    position: absolute;
+    width: 350px;
+    display: flex;
+    align-items: centre;
+    justify-content: space-between;
+    left: 5%;
+    top: 5%;
+    color: white;  
+}
+#nav h5{
+    font-size:15px;
+    position: absolute;
+    left:50%;
+}
+#nav img{
+    height: 70px;
+    animation: wobble 2s ease-in-out infinite;  
+}
+@keyframes wobble {
+      0% { transform: rotate(-20deg); }
+      50% { transform: rotate(20deg); }
+      100% { transform: rotate(-20deg); }
+    }
+
