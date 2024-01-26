@@ -1,0 +1,139 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+/*  */
+body{
+    background-image:url("wavesOpacity.svg"),
+    linear-gradient(to bottom,
+     rgba(112, 92, 78, 1)0%,
+     rgba(203, 168, 144, 1)50% ,
+     rgba(187, 164, 143, 1)100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flip-container{
+  min-height: 100vh;
+  perspective: 1000px;
+}
+.flipper{
+  position: relative;
+  width: 420px;
+	transition: transform 1.4s;
+	transform-style: preserve-3d;
+}
+.login-front, .register-back {
+  position: absolute;
+  border: 4px solid  rgba(112, 92, 78, 1);
+  padding:30px 30px;
+  top: 15vh;
+  left: 0;
+  right: 0;
+  border-radius: 20px;
+	backface-visibility: hidden;
+}
+.register-back{
+  z-index: 2;
+	transform: rotateY(0deg);
+}
+
+.login-front{
+  transform: rotateY(180deg);
+}
+.flip{
+  transform: rotateY(180deg);
+} 
+.top-image{
+  background-image:url(pexels-yulia-ilina-9463157.jpg);
+  background-size:cover;
+  opacity:0.8;
+  width: 360px;
+  height:200px;
+  border-radius: 20px;
+}
+.top-image h1{
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  font-weight: 500;
+  min-height: 200px;
+}
+.flip-container .input-box{
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background: #9C9A9C;
+  margin: 20px 0;
+  border-radius: 20px;
+}
+.input-box input{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  border: 2px solid #6f4e37;
+  border-radius: 20px;
+  font-size: 19px;
+  padding: 20px 45px 20px 20px;
+  color: antiquewhite;
+}
+.input-box input::placeholder{
+  color:rgba(112, 92, 78, 1);
+
+}
+.input-box i{
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  font-weight: 200;
+}
+.flip-container .remember-forgot{
+ display: flex;
+ justify-content: space-between;
+ font-size:15px;
+ margin: -15px 0 15px ;
+}
+
+.remember-forgot label input{
+  margin-left: 10px;
+  
+}
+.flip-container .remember-forgot a{
+  color:black;
+  display: flex;
+  text-decoration: none;
+  margin-right: 10px; 
+}
+.flip-container .remember-forgot a:hover{
+  text-decoration:underline;
+}
+.flip-container button{
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background-color:	#6f4e37;
+  font-weight: 500;
+  font-size: large;
+}
+.flip-container button:hover{
+  background-color:antiquewhite;;
+  cursor: pointer;
+}
+.register-link a {
+ text-decoration: none;
+ padding: 10px;
+ color: black;
+ cursor: pointer;
+}
+.register-link a:hover{
+  text-decoration: underline;
+}
+.register-link p{
+  padding: 10px;
+}

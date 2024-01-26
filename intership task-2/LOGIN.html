@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=4, initial-scale=1.0">
+    <title>LOGIN form</title>
+    <link rel="stylesheet" href="LOGIN.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="flip-container">
+     <div class="flipper" id="flipper">
+      <div class="register-back">
+        <div class="top-image"> 
+          <h1>Register</h1>
+        </div> 
+          <form >
+              <div class="input-box">
+                  <input type="text" id="NameImp" placeholder="Name" required>
+                  <i class='bx bxs-user'></i>
+              </div>
+              <div class="input-box">
+                  <input type="text" id="EmailImp" placeholder="Email" required>
+                  <i class='bx bxs-envelope'></i>
+              </div>
+              <div class="input-box">
+                  <input type="password" id="PassImp" placeholder="password" required>
+                  <i class='bx bx-lock-alt'></i>
+              </div>
+              <button type="submit" id="register" class="btn">Register</button>
+              <div class="register-link">
+                  <p>Already registered ? <a class="flipbutton" id="registerButton" href="#">Login to my account →</a></p>
+              </div>
+          </form>
+      </div>
+
+      <div class="login-front">
+        <div class="top-image"> 
+             <h1>Login</h1>
+        </div> 
+        <form id="MainForm">
+           <div class="input-box">
+            <input type="text" id="login-user" placeholder="Email" required>
+            <i class='bx bxs-user'></i>
+           </div>
+           <div class="input-box">
+            <input type="password" id="login-pswd" placeholder="password" required>
+            <i class='bx bx-lock-alt'></i>
+           </div>
+           <div class="remember-forgot">
+           <label><input type="checkbox"> Remember Me</label>
+           <a href="#">Forgot Password</a>
+           </div>
+          <button type="submit" id="Login" class="btn">Login</button>
+            <div class="register-link">
+             <p>Don't have an account? <a class="flipbutton" id="loginButton" href="#">Register</a></p>
+            </div>
+        </form>
+      </div>
+    </div> 
+    </div>
+
+   
+     
+</body>
+
+<script src="flip.js"></script>
+<script type="module">
+   
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+  import  {getAnalytics} from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
+  import { getAuth,createUserWithEmailAndPassword ,signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+  
+  
+  const firebaseConfig = {
+  apiKey: "AIzaSyDyUHm5L1OHQqz4Mm6Ud4yrrGHNndaET4U",
+  authDomain: "my-doc-23e39.firebaseapp.com",
+  projectId: "my-doc-23e39",
+  storageBucket: "my-doc-23e39.appspot.com",
+  messagingSenderId: "667913924196",
+  appId: "1:667913924196:web:a30bedd9f6834d0caff971",
+  measurementId: "G-NK3TM5N1TD"
+   };
+ 
+
+   const app = initializeApp(firebaseConfig);
+   const Analytics = getAnalytics(app);
+   const auth = getAuth();
+
+   // new registration code //
+  document.getElementById("register").addEventListener("click",function() {
+    var EmailImp =document.getElementById("EmailImp").value;
+    var PassImp = document.getElementById("PassImp").value;
+
+    createUserWithEmailAndPassword(auth ,EmailImp, PassImp)
+   .then((userCredentials) => {
+    const user = userCredentials.user;
+    console.log(user);
+    alert("Registration successfully done!!");
+  })
+  .catch((error)=>{
+    const errorCode = error.code;
+    const errorMessage = error.message;
+ 
+     console.log(errorMessage);
+     alert(error);
+   });
+   
+   });
+
+   //login code//
+   document.getElementById("Login").addEventListener("click",function() {
+    var EmailImp =document.getElementById("login-user").value;
+    var PassImp = document.getElementById("login-pswd").value;
+
+    signInWithEmailAndPassword(auth ,EmailImp, PassImp)
+   .then((userCredentials) => {
+    const user = userCredentials.user;
+    console.log(user);
+    
+    // document.body.innerHTML("")
+    window.open("../index.html");
+    // alert("Login successfully done!!");
+  })
+  .catch((error)=>{
+    const errorCode = error.code;
+    const errorMessage = error.message;
+ 
+     console.log(errorMessage);
+     alert(error);
+   });
+   
+   });
+
+
+ </script>
+</html>
